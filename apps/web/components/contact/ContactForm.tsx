@@ -1,18 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
-const services = ["Power Platform", "Microsoft Azure", "Copilot Agents", "Artificial Intelligence", "Not sure yet"];
+const services = [
+  "Power Platform",
+  "Microsoft Azure",
+  "Copilot Agents",
+  "Artificial Intelligence",
+  "Not sure yet",
+];
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (!turnstileToken) {
+      setErrorMsg("Please wait for the security check to complete.");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMsg("");
+
+    const data = new FormData(e.currentTarget);
+    const payload = {
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      company: data.get("company"),
+      service: data.get("service"),
+      message: data.get("message"),
+      honeypot: data.get("website"), // hidden honeypot field
+      turnstileToken,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? "Something went wrong.");
+      setStatus("success");
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-10 text-center">
         <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
@@ -27,11 +71,15 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 space-y-5">
+    <form ref={formRef} onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 space-y-5">
+      {/* Honeypot — hidden from real users, bots fill it in */}
+      <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5">First name</label>
           <input
+            name="firstName"
             type="text"
             required
             placeholder="Jane"
@@ -41,6 +89,7 @@ export default function ContactForm() {
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5">Last name</label>
           <input
+            name="lastName"
             type="text"
             required
             placeholder="Smith"
@@ -52,6 +101,7 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">Work email</label>
         <input
+          name="email"
           type="email"
           required
           placeholder="jane@company.com"
@@ -62,8 +112,8 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">Company</label>
         <input
+          name="company"
           type="text"
-          required
           placeholder="Acme Ltd"
           className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390]"
         />
@@ -72,6 +122,7 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">Service of interest</label>
         <select
+          name="service"
           className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390] bg-white"
         >
           <option value="">Select a service…</option>
@@ -84,6 +135,7 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-1.5">How can we help?</label>
         <textarea
+          name="message"
           required
           rows={4}
           placeholder="Tell us about your project or challenge…"
@@ -91,11 +143,22 @@ export default function ContactForm() {
         />
       </div>
 
+      <Turnstile
+        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+        onSuccess={setTurnstileToken}
+        options={{ theme: "light" }}
+      />
+
+      {status === "error" && (
+        <p className="text-sm text-red-600 font-medium">{errorMsg}</p>
+      )}
+
       <button
         type="submit"
-        className="w-full bg-[#204390] hover:bg-[#183270] text-white font-semibold py-3 rounded-lg transition-colors"
+        disabled={status === "submitting"}
+        className="w-full bg-[#204390] hover:bg-[#183270] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors"
       >
-        Send message
+        {status === "submitting" ? "Sending…" : "Send message"}
       </button>
     </form>
   );
