@@ -96,7 +96,7 @@ export const translations = {
     contact: {
       eyebrow: "Contact",
       title: "Let's talk",
-      description: "Tell us about your project and we'll take it from there.",
+      description: "Tell us about your project and we'll see how we can help.",
       details: {
         emailLabel: "Email",
         locationLabel: "Based in",
