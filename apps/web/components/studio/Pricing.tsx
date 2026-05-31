@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Mail, LayoutGrid } from "lucide-react";
+import { Check, LayoutGrid } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Pricing() {
@@ -77,14 +77,13 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="mailto:hello@wism.io"
-                className={`inline-flex items-center justify-center gap-2 font-semibold px-6 py-3 rounded-xl transition-all text-sm ${
+                href={`/${locale}/contact`}
+                className={`inline-flex items-center justify-center font-semibold px-6 py-3 rounded-xl transition-all text-sm ${
                   tier.highlighted
                     ? "bg-white text-primary hover:bg-white/90"
                     : "bg-gradient-primary text-white hover:opacity-90 shadow-glow"
                 }`}
               >
-                <Mail className="w-4 h-4" />
                 {tier.cta}
               </a>
             </div>
@@ -95,10 +94,9 @@ export default function Pricing() {
           <p className="text-xl font-semibold mb-2">{s.cta.title}</p>
           <p className="text-muted-foreground mb-6">{s.cta.description}</p>
           <a
-            href="mailto:hello@wism.io"
+            href={`/${locale}/contact`}
             className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
           >
-            <Mail className="w-4 h-4" />
             {s.cta.primary}
           </a>
         </div>

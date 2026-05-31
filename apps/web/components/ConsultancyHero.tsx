@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function ConsultancyHero() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const h = t.consultancyHero;
   return (
     <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
@@ -29,7 +29,7 @@ export default function ConsultancyHero() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#contact"
+              href={`/${locale}/contact`}
               className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
             >
               {h.ctaPrimary} <ArrowRight className="w-4 h-4" />
