@@ -86,10 +86,10 @@ export const translations = {
     },
     cta: {
       eyebrow: "Get in touch",
-      titleA: "Ready to",
-      titleB: "modernise your workflows?",
+      titleA: "Interested?",
+      titleB: "Let's talk.",
       description:
-        "Let's talk about your challenges. A free 30-minute discovery call is all it takes to get started.",
+        "A free 30-minute discovery call is all it takes to find out how we can help you.",
       primary: "Get in touch",
       secondary: "See our services",
     },
@@ -290,10 +290,10 @@ export const translations = {
     },
     cta: {
       eyebrow: "Neem contact op",
-      titleA: "Benieuwd wat wij",
-      titleB: "voor jouw organisatie kunnen doen?",
+      titleA: "Benieuwd?",
+      titleB: "Laten we praten.",
       description:
-        "Plan een vrijblijvend kennismakingsgesprek van 30 minuten. We kijken samen wat er speelt en of we de juiste partner voor je zijn.",
+        "Een vrijblijvend kennismakingsgesprek van 30 minuten is genoeg om te ontdekken hoe we je kunnen helpen.",
       primary: "Neem contact op",
       secondary: "Bekijk onze diensten",
     },
