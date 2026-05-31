@@ -1,7 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  :root {
+    /* Wism.io — Modern Ocean */
+    --background: 200 40% 98%;
+    --foreground: 210 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 12%;
+
+    /* Deep ocean teal */
+    --primary: 195 85% 38%;
+    --primary-foreground: 200 40% 98%;
+    --primary-glow: 190 90% 55%;
+
+    --secondary: 200 30% 94%;
+    --secondary-foreground: 210 40% 15%;
+
+    --muted: 200 30% 94%;
+    --muted-foreground: 210 15% 40%;
+
+    --accent: 215 75% 50%;
+    --accent-foreground: 200 40% 98%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 200 40% 98%;
+
+    --border: 200 25% 88%;
+    --input: 200 25% 90%;
+    --ring: 195 85% 38%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 85% 38%), hsl(215 75% 50%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(200 60% 95%) 0%, hsl(200 40% 98%) 60%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(195 85% 50% / 0.18), transparent 70%);
+    --gradient-text: linear-gradient(135deg, hsl(210 60% 20%) 0%, hsl(195 85% 38%) 50%, hsl(215 75% 50%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(200 40% 96% / 0.7));
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsl(195 85% 50% / 0.25);
+    --shadow-elegant: 0 20px 60px -15px hsl(210 50% 30% / 0.18);
+    --shadow-card: 0 8px 32px hsl(210 40% 30% / 0.08);
+
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image:
+      radial-gradient(ellipse 70% 45% at 10% -5%, hsl(190 90% 60% / 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 95% 10%, hsl(170 80% 55% / 0.14), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 40%, hsl(215 80% 60% / 0.10), transparent 70%),
+      radial-gradient(ellipse 70% 45% at 5% 75%, hsl(220 85% 55% / 0.14), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 95% 95%, hsl(195 90% 55% / 0.16), transparent 60%),
+      linear-gradient(180deg, hsl(200 50% 98%) 0%, hsl(195 45% 96%) 50%, hsl(210 50% 97%) 100%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+    font-feature-settings: "ss01", "cv11";
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  .glass {
+    @apply backdrop-blur-xl bg-white/60 border border-border/60;
+  }
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .ocean-blob {
+    @apply absolute rounded-full blur-3xl pointer-events-none;
+  }
+  .bg-ocean-teal {
+    background: radial-gradient(circle at 30% 30%, hsl(180 85% 55% / 0.55), hsl(195 90% 50% / 0.25) 60%, transparent 75%);
+  }
+  .bg-ocean-deep {
+    background: radial-gradient(circle at 30% 30%, hsl(220 85% 55% / 0.55), hsl(215 80% 45% / 0.25) 60%, transparent 75%);
+  }
+  .bg-ocean-aqua {
+    background: radial-gradient(circle at 30% 30%, hsl(170 85% 60% / 0.5), hsl(190 90% 55% / 0.2) 60%, transparent 75%);
+  }
+  .bg-ocean-sky {
+    background: radial-gradient(circle at 30% 30%, hsl(205 95% 70% / 0.5), hsl(215 85% 60% / 0.2) 60%, transparent 75%);
+  }
+  .bg-ocean-coral {
+    background: radial-gradient(circle at 30% 30%, hsl(185 90% 65% / 0.45), hsl(230 80% 65% / 0.2) 60%, transparent 75%);
+  }
 }
