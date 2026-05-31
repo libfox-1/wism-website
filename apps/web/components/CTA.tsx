@@ -1,10 +1,10 @@
 "use client";
 
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function CTA() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   return (
     <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       <div className="ocean-blob bg-ocean-deep w-[600px] h-[600px] -top-20 left-1/2 -translate-x-1/2 animate-glow-pulse" />
@@ -24,11 +24,10 @@ export default function CTA() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:hello@wism.io"
+              href={`/${locale}/contact`}
               className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
             >
-              <Mail className="w-4 h-4" />
-              {t.cta.primary}
+              {t.cta.primary} <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#services"

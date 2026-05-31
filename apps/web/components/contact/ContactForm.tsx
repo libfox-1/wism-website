@@ -1,31 +1,24 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Turnstile } from "@marsidev/react-turnstile";
-
-const services = [
-  "Power Platform",
-  "Microsoft Azure",
-  "Copilot Agents",
-  "Artificial Intelligence",
-  "Not sure yet",
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const inputCls =
+  "w-full px-4 py-2.5 rounded-xl bg-background/50 border border-border/60 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors";
+const labelCls = "block text-sm font-semibold text-foreground/80 mb-1.5";
+
 export default function ContactForm() {
+  const { t } = useLanguage();
+  const f = t.contact.form;
+
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const [turnstileToken, setTurnstileToken] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!turnstileToken) {
-      setErrorMsg("Please wait for the security check to complete.");
-      return;
-    }
-
     setStatus("submitting");
     setErrorMsg("");
 
@@ -37,8 +30,7 @@ export default function ContactForm() {
       company: data.get("company"),
       service: data.get("service"),
       message: data.get("message"),
-      honeypot: data.get("website"), // hidden honeypot field
-      turnstileToken,
+      honeypot: data.get("website"),
     };
 
     try {
@@ -58,107 +50,74 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-10 text-center">
-        <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
-          <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <div className="bg-gradient-card border border-border/60 rounded-3xl p-10 text-center">
+        <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+          <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Message received</h3>
-        <p className="text-gray-500">We'll be in touch within one business day.</p>
+        <h3 className="text-xl font-bold mb-2">{f.successTitle}</h3>
+        <p className="text-muted-foreground">{f.successDetail}</p>
       </div>
     );
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 space-y-5">
-      {/* Honeypot — hidden from real users, bots fill it in */}
+    <form ref={formRef} onSubmit={handleSubmit} className="bg-gradient-card border border-border/60 rounded-3xl p-8 space-y-5">
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1.5">First name</label>
-          <input
-            name="firstName"
-            type="text"
-            required
-            placeholder="Jane"
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390]"
-          />
+          <label className={labelCls}>{f.firstName}</label>
+          <input name="firstName" type="text" required placeholder="Jane" className={inputCls} />
         </div>
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Last name</label>
-          <input
-            name="lastName"
-            type="text"
-            required
-            placeholder="Smith"
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390]"
-          />
+          <label className={labelCls}>{f.lastName}</label>
+          <input name="lastName" type="text" required placeholder="Smith" className={inputCls} />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Work email</label>
-        <input
-          name="email"
-          type="email"
-          required
-          placeholder="jane@company.com"
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390]"
-        />
+        <label className={labelCls}>{f.email}</label>
+        <input name="email" type="email" required placeholder="jane@company.com" className={inputCls} />
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Company</label>
-        <input
-          name="company"
-          type="text"
-          placeholder="Acme Ltd"
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390]"
-        />
+        <label className={labelCls}>{f.company}</label>
+        <input name="company" type="text" placeholder="Acme Ltd" className={inputCls} />
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Service of interest</label>
-        <select
-          name="service"
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390] bg-white"
-        >
-          <option value="">Select a service…</option>
-          {services.map((s) => (
+        <label className={labelCls}>{f.service}</label>
+        <select name="service" className={inputCls + " cursor-pointer"}>
+          <option value="">{f.servicePlaceholder}</option>
+          {f.services.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
       </div>
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-1.5">How can we help?</label>
+        <label className={labelCls}>{f.message}</label>
         <textarea
           name="message"
           required
           rows={4}
-          placeholder="Tell us about your project or challenge…"
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#204390]/30 focus:border-[#204390] resize-none"
+          placeholder={f.messagePlaceholder}
+          className={inputCls + " resize-none"}
         />
       </div>
 
-      <Turnstile
-        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-        onSuccess={setTurnstileToken}
-        options={{ theme: "light" }}
-      />
-
       {status === "error" && (
-        <p className="text-sm text-red-600 font-medium">{errorMsg}</p>
+        <p className="text-sm text-red-500 font-medium">{errorMsg}</p>
       )}
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full bg-[#204390] hover:bg-[#183270] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors"
+        className="w-full bg-gradient-primary text-white font-semibold py-3 rounded-xl hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed transition-opacity shadow-glow"
       >
-        {status === "submitting" ? "Sending…" : "Send message"}
+        {status === "submitting" ? f.submitting : f.submit}
       </button>
     </form>
   );

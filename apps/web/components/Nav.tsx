@@ -1,19 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import type { Locale } from "@/i18n/translations";
 
 const serviceItems = {
-  en: ["Dynamics 365 CE", "Power Platform", "Copilot & AI", "Integrations & Advisory"],
-  nl: ["Dynamics 365 CE", "Power Platform", "Copilot & AI", "Integraties & Advies"],
+  en: ["Dynamics CE", "Power Platform", "Copilot & AI", "Advisory", "Azure Solutions"],
+  nl: ["Dynamics CE", "Power Platform", "Copilot & AI", "Advies", "Azure Solutions"],
 };
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const { locale, setLocale, t } = useLanguage();
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   return (
     <header
@@ -24,7 +35,7 @@ export default function Nav() {
       }}
     >
       <div className="container flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2 group">
+        <a href={`/${locale}`} className="flex items-center gap-2 group">
           <Image
             src="/wism-icon.svg"
             alt="Wism.io"
@@ -48,54 +59,76 @@ export default function Nav() {
               <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform" />
             </a>
             <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div className="bg-white text-foreground rounded-xl border border-border shadow-elegant p-5 min-w-[220px]">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
-                  Microsoft Stack
-                </p>
-                <ul className="space-y-2">
-                  {serviceItems[locale].map((item) => (
-                    <li key={item}>
-                      <a
-                        href="#services"
-                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+              <div className="bg-white text-foreground rounded-xl border border-border shadow-elegant p-5 grid grid-cols-2 gap-8 min-w-[420px]">
+                <div>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
+                    Microsoft Stack
+                  </p>
+                  <ul className="space-y-2">
+                    {serviceItems[locale].map((item) => (
+                      <li key={item}>
+                        <a
+                          href={`/${locale}/consultancy`}
+                          className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="border-l border-border pl-8">
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
+                    Wism Web Studio
+                  </p>
+                  <a
+                    href={`/${locale}/studio`}
+                    className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Business websites
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          <a href="#about" className="text-sm text-white/80 hover:text-white transition-colors">
-            {t.nav.whyWism}
-          </a>
-          <a href="#contact" className="text-sm text-white/80 hover:text-white transition-colors">
+          <a href={`/${locale}/contact`} className="text-sm text-white/80 hover:text-white transition-colors">
             {t.nav.contact}
           </a>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          {/* Language toggle */}
-          <div className="flex items-center rounded-lg border border-white/20 overflow-hidden text-xs font-semibold">
-            {(["en", "nl"] as Locale[]).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLocale(l)}
-                className={`px-3 py-1.5 transition-colors uppercase ${
-                  locale === l
-                    ? "bg-white/20 text-white"
-                    : "text-white/50 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {l}
-              </button>
-            ))}
+          <div ref={langRef} className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors text-xs font-semibold uppercase"
+              aria-label="Select language"
+            >
+              <Globe className="w-4 h-4" />
+              {locale}
+              <ChevronDown className={`w-3 h-3 opacity-70 transition-transform ${langOpen ? "rotate-180" : ""}`} />
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-2 bg-white text-foreground rounded-xl border border-border shadow-elegant overflow-hidden min-w-[100px] z-50">
+                {(["en", "nl"] as const).map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => { setLocale(l); setLangOpen(false); }}
+                    className={`w-full text-left px-4 py-2.5 text-sm font-medium uppercase transition-colors ${
+                      locale === l
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <a
-            href="#contact"
+            href={`/${locale}/contact`}
             className="text-sm font-semibold px-5 py-2 rounded-lg border border-white/20 hover:border-white/50 hover:bg-white/10 transition-all"
           >
             {t.nav.cta}
@@ -118,29 +151,29 @@ export default function Nav() {
             <a href="#services" className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
               {t.nav.services}
             </a>
-            <a href="#about" className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
-              {t.nav.whyWism}
+            <a href={`/${locale}/studio`} className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
+              Wism Web Studio
             </a>
-            <a href="#contact" className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
+            <a href={`/${locale}/contact`} className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
               {t.nav.contact}
             </a>
             <div className="flex items-center gap-2 pt-2">
-              {(["en", "nl"] as Locale[]).map((l) => (
+              {(["en", "nl"] as const).map((l) => (
                 <button
                   key={l}
-                  onClick={() => setLocale(l)}
+                  onClick={() => { setLocale(l); setOpen(false); }}
                   className={`px-3 py-1.5 rounded-lg border text-xs font-semibold uppercase transition-colors ${
                     locale === l
                       ? "bg-white/20 border-white/40 text-white"
                       : "border-white/20 text-white/50 hover:text-white"
                   }`}
                 >
-                  {l}
+                  {l.toUpperCase()}
                 </button>
               ))}
             </div>
             <a
-              href="#contact"
+              href={`/${locale}/contact`}
               className="block mt-2 text-center text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/20 hover:bg-white/10 transition-all"
               onClick={() => setOpen(false)}
             >

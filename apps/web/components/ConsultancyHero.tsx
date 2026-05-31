@@ -3,8 +3,9 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-export default function Hero() {
-  const { t, locale } = useLanguage();
+export default function ConsultancyHero() {
+  const { t } = useLanguage();
+  const h = t.consultancyHero;
   return (
     <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
@@ -14,36 +15,33 @@ export default function Hero() {
         <div className="max-w-3xl mx-auto text-center animate-fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-xs font-medium text-muted-foreground">
-              {t.hero.eyebrow}
-            </span>
+            <span className="text-xs font-medium text-muted-foreground">{h.eyebrow}</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] mb-6">
-            {t.hero.titleA} <br />
-            <span className="text-gradient">{t.hero.titleB}</span>
+            {h.titleA} <br />
+            <span className="text-gradient">{h.titleB}</span>
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            {t.hero.description}
+            {h.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#services"
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
             >
-              {t.hero.ctaPrimary} <ArrowRight className="w-4 h-4" />
+              {h.ctaPrimary} <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href={`/${locale}/contact`}
+              href="#services"
               className="inline-flex items-center justify-center glass text-foreground font-semibold px-8 py-3.5 rounded-xl hover:bg-white/80 transition-all"
             >
-              {t.hero.ctaSecondary}
+              {h.ctaSecondary}
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );
