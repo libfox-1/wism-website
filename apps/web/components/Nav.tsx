@@ -3,22 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import type { Locale } from "@/i18n/translations";
 
-const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Why Wism", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
-
-const serviceItems = [
-  "Dynamics 365 CE",
-  "Power Platform",
-  "Copilot & AI",
-  "Integrations & Advisory",
-];
+const serviceItems = {
+  en: ["Dynamics 365 CE", "Power Platform", "Copilot & AI", "Integrations & Advisory"],
+  nl: ["Dynamics 365 CE", "Power Platform", "Copilot & AI", "Integraties & Advies"],
+};
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const { locale, setLocale, t } = useLanguage();
 
   return (
     <header
@@ -44,13 +39,12 @@ export default function Nav() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {/* Services with dropdown */}
           <div className="relative group">
             <a
               href="#services"
               className="flex items-center gap-1 text-sm text-white/80 hover:text-white transition-colors py-5"
             >
-              Services
+              {t.nav.services}
               <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform" />
             </a>
             <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -59,7 +53,7 @@ export default function Nav() {
                   Microsoft Stack
                 </p>
                 <ul className="space-y-2">
-                  {serviceItems.map((item) => (
+                  {serviceItems[locale].map((item) => (
                     <li key={item}>
                       <a
                         href="#services"
@@ -74,26 +68,39 @@ export default function Nav() {
             </div>
           </div>
 
-          <a
-            href="#about"
-            className="text-sm text-white/80 hover:text-white transition-colors"
-          >
-            Why Wism
+          <a href="#about" className="text-sm text-white/80 hover:text-white transition-colors">
+            {t.nav.whyWism}
           </a>
-          <a
-            href="#contact"
-            className="text-sm text-white/80 hover:text-white transition-colors"
-          >
-            Contact
+          <a href="#contact" className="text-sm text-white/80 hover:text-white transition-colors">
+            {t.nav.contact}
           </a>
         </nav>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2 rounded-lg border border-white/20 hover:border-white/50 hover:bg-white/10 transition-all"
-        >
-          Get in touch
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          {/* Language toggle */}
+          <div className="flex items-center rounded-lg border border-white/20 overflow-hidden text-xs font-semibold">
+            {(["en", "nl"] as Locale[]).map((l) => (
+              <button
+                key={l}
+                onClick={() => setLocale(l)}
+                className={`px-3 py-1.5 transition-colors uppercase ${
+                  locale === l
+                    ? "bg-white/20 text-white"
+                    : "text-white/50 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+
+          <a
+            href="#contact"
+            className="text-sm font-semibold px-5 py-2 rounded-lg border border-white/20 hover:border-white/50 hover:bg-white/10 transition-all"
+          >
+            {t.nav.cta}
+          </a>
+        </div>
 
         <button
           className="md:hidden p-2 text-white/80 hover:text-white"
@@ -108,22 +115,36 @@ export default function Nav() {
       {open && (
         <div className="md:hidden border-t border-white/10 py-4">
           <div className="container space-y-3">
-            {navLinks.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="block text-sm text-white/80 hover:text-white py-1"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </a>
-            ))}
+            <a href="#services" className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
+              {t.nav.services}
+            </a>
+            <a href="#about" className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
+              {t.nav.whyWism}
+            </a>
+            <a href="#contact" className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
+              {t.nav.contact}
+            </a>
+            <div className="flex items-center gap-2 pt-2">
+              {(["en", "nl"] as Locale[]).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLocale(l)}
+                  className={`px-3 py-1.5 rounded-lg border text-xs font-semibold uppercase transition-colors ${
+                    locale === l
+                      ? "bg-white/20 border-white/40 text-white"
+                      : "border-white/20 text-white/50 hover:text-white"
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
             <a
               href="#contact"
-              className="block mt-4 text-center text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/20 hover:bg-white/10 transition-all"
+              className="block mt-2 text-center text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/20 hover:bg-white/10 transition-all"
               onClick={() => setOpen(false)}
             >
-              Get in touch
+              {t.nav.cta}
             </a>
           </div>
         </div>

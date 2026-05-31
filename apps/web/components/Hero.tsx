@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
@@ -12,19 +16,17 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-8">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
             <span className="text-xs font-medium text-muted-foreground">
-              Microsoft Consultancy &amp; Digital Studio
+              {t.hero.eyebrow}
             </span>
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold leading-[1.05] mb-6">
-            Software services, <br />
-            <span className="text-gradient">built around your business.</span>
+            {t.hero.titleA} <br />
+            <span className="text-gradient">{t.hero.titleB}</span>
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            End-to-end Microsoft consultancy that turns complex technology into
-            real business outcomes. Power Platform, Dynamics 365, Copilot Agents —
-            implemented by people who care about your results.
+            {t.hero.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -32,13 +34,13 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
             >
-              Get in touch <ArrowRight className="w-4 h-4" />
+              {t.hero.ctaPrimary} <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#services"
               className="inline-flex items-center justify-center glass text-foreground font-semibold px-8 py-3.5 rounded-xl hover:bg-white/80 transition-all"
             >
-              See our services
+              {t.hero.ctaSecondary}
             </a>
           </div>
         </div>

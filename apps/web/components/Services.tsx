@@ -1,48 +1,30 @@
-import { Workflow, Database, Bot, Plug } from "lucide-react";
+"use client";
 
-const services = [
-  {
-    icon: Database,
-    title: "Dynamics 365 CE",
-    desc: "Sales, Customer Service and Marketing — implemented or improved to fit how your team actually works.",
-  },
-  {
-    icon: Workflow,
-    title: "Power Platform",
-    desc: "Power Apps, Power Automate and Dataverse to replace spreadsheets and clunky legacy tooling.",
-  },
-  {
-    icon: Bot,
-    title: "Copilot & AI",
-    desc: "Copilot Studio agents and AI embedded in your CRM, so teams get useful answers faster.",
-  },
-  {
-    icon: Plug,
-    title: "Integrations & Advisory",
-    desc: "Connect Dynamics to the rest of your stack, or get a second opinion on architecture and approach.",
-  },
-];
+import { Workflow, Database, Bot, Plug } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+
+const icons = [Database, Workflow, Bot, Plug];
 
 export default function Services() {
+  const { t } = useLanguage();
   return (
     <section id="services" className="py-24 md:py-32 relative">
       <div className="container">
         <div className="max-w-2xl mb-16">
           <p className="text-sm font-medium text-primary mb-3 uppercase tracking-wider">
-            What we do
+            {t.services.eyebrow}
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Focused on one stack.
+            {t.services.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            We work exclusively with the Microsoft Business Applications platform — so you get
-            opinionated, hands-on delivery instead of generalist guesswork.
+            {t.services.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((s) => {
-            const Icon = s.icon;
+          {t.services.items.map((s, i) => {
+            const Icon = icons[i];
             return (
               <article
                 key={s.title}
@@ -54,9 +36,7 @@ export default function Services() {
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {s.desc}
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{s.desc}</p>
                 </div>
               </article>
             );

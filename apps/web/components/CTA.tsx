@@ -1,6 +1,10 @@
+"use client";
+
 import { ArrowRight, Mail } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function CTA() {
+  const { t } = useLanguage();
   return (
     <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       <div className="ocean-blob bg-ocean-deep w-[600px] h-[600px] -top-20 left-1/2 -translate-x-1/2 animate-glow-pulse" />
@@ -8,14 +12,14 @@ export default function CTA() {
       <div className="container relative">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-sm font-medium text-primary mb-3 uppercase tracking-wider">
-            Get in touch
+            {t.cta.eyebrow}
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Ready to{" "}
-            <span className="text-gradient">modernise your workflows?</span>
+            {t.cta.titleA}{" "}
+            <span className="text-gradient">{t.cta.titleB}</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-            Let's talk about your challenges. A free 30-minute discovery call is all it takes to get started.
+            {t.cta.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -24,13 +28,13 @@ export default function CTA() {
               className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
             >
               <Mail className="w-4 h-4" />
-              hello@wism.io
+              {t.cta.primary}
             </a>
             <a
               href="#services"
               className="inline-flex items-center justify-center gap-2 glass text-foreground font-semibold px-8 py-3.5 rounded-xl hover:bg-white/80 transition-all"
             >
-              See our services <ArrowRight className="w-4 h-4" />
+              {t.cta.secondary} <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
