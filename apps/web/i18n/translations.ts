@@ -4,6 +4,7 @@ export const translations = {
   en: {
     nav: {
       services: "Services",
+      about: "About",
       whyWism: "Why Wism",
       contact: "Contact",
       cta: "Get in touch",
@@ -17,6 +18,28 @@ export const translations = {
         "We help businesses grow through Microsoft consultancy and modern web design.",
       ctaPrimary: "Our services",
       ctaSecondary: "Get in touch",
+    },
+    about: {
+      eyebrow: "About",
+      titleA: "Senior expertise.",
+      titleB: "Without the overhead.",
+      description: "Wism is one person with a clear focus: delivering Microsoft solutions that work. No layers, no handoffs — direct access to someone who has done this before.",
+      storyTitle: "Background",
+      story: [
+        "Before starting Wism, I spent years delivering Power Platform, Dynamics CE and Azure solutions at Avanade and Roborana — two of the leading Microsoft delivery partners in the Netherlands. I've worked across industries, led development teams, and built solutions used by thousands of people.",
+        "I started Wism to bring that experience directly to clients who want senior delivery without the overhead of a large consultancy. You work with me from the first call to the final deployment.",
+      ],
+      certsTitle: "Microsoft Certifications",
+      certs: [
+        "PL-600 · Solution Architect Expert",
+        "PL-200 · Functional Consultant",
+        "PL-400 · Developer",
+        "PL-300 · Power BI Data Analyst",
+        "AZ-900 · Azure Fundamentals",
+        "PSM I · Scrum Master",
+      ],
+      ctaTitle: "Want to work together?",
+      ctaButton: "Get in touch",
     },
     consultancyHero: {
       eyebrow: "Microsoft Consultancy",
@@ -208,6 +231,7 @@ export const translations = {
   nl: {
     nav: {
       services: "Diensten",
+      about: "Over",
       whyWism: "Waarom Wism",
       contact: "Contact",
       cta: "Neem contact op",
@@ -221,6 +245,28 @@ export const translations = {
         "Wij helpen bedrijven groeien met Microsoft-consultancy en modern webdesign.",
       ctaPrimary: "Onze diensten",
       ctaSecondary: "Neem contact op",
+    },
+    about: {
+      eyebrow: "Over",
+      titleA: "Senior expertise.",
+      titleB: "Zonder de overhead.",
+      description: "Wism is één persoon met een duidelijke focus: Microsoft-oplossingen leveren die werken. Geen lagen, geen overdrachten — gewoon directe toegang tot iemand die het al eerder heeft gedaan.",
+      storyTitle: "Achtergrond",
+      story: [
+        "Voor Wism heb ik jarenlang Power Platform-, Dynamics CE- en Azure-oplossingen geleverd bij Avanade en Roborana — twee van de toonaangevende Microsoft-delivery partners in Nederland. Ik heb in verschillende sectoren gewerkt, development teams aangestuurd en oplossingen gebouwd die dagelijks door duizenden mensen worden gebruikt.",
+        "Wism is ontstaan omdat ik die expertise rechtstreeks wilde inzetten voor klanten die senior delivery willen, zonder de overhead van een groot consultancykantoor. Je werkt met mij van het eerste gesprek tot de uiteindelijke oplevering.",
+      ],
+      certsTitle: "Microsoft Certificeringen",
+      certs: [
+        "PL-600 · Solution Architect Expert",
+        "PL-200 · Functional Consultant",
+        "PL-400 · Developer",
+        "PL-300 · Power BI Data Analyst",
+        "AZ-900 · Azure Fundamentals",
+        "PSM I · Scrum Master",
+      ],
+      ctaTitle: "Samenwerken?",
+      ctaButton: "Neem contact op",
     },
     consultancyHero: {
       eyebrow: "Microsoft Consultancy",

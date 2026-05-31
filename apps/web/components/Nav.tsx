@@ -92,6 +92,9 @@ export default function Nav() {
             </div>
           </div>
 
+          <a href={`/${locale}/about`} className="text-sm text-white/80 hover:text-white transition-colors">
+            {t.nav.about}
+          </a>
           <a href={`/${locale}/contact`} className="text-sm text-white/80 hover:text-white transition-colors">
             {t.nav.contact}
           </a>
@@ -153,6 +156,9 @@ export default function Nav() {
             </a>
             <a href={`/${locale}/studio`} className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
               Wism Web Studio
+            </a>
+            <a href={`/${locale}/about`} className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
+              {t.nav.about}
             </a>
             <a href={`/${locale}/contact`} className="block text-sm text-white/80 hover:text-white py-1" onClick={() => setOpen(false)}>
               {t.nav.contact}
