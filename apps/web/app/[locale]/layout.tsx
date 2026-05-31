@@ -18,8 +18,10 @@ export default async function LocaleLayout({
 
   return (
     <LanguageProvider locale={safeLocale}>
-      <Nav />
-      {children}
+      <div className="flex flex-col flex-1">
+        <Nav />
+        {children}
+      </div>
     </LanguageProvider>
   );
 }

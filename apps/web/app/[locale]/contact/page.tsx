@@ -8,8 +8,10 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
-      <ContactSection />
+    <main className="flex flex-col flex-1">
+      <div className="flex-1">
+        <ContactSection />
+      </div>
       <Footer />
     </main>
   );
