@@ -50,8 +50,8 @@ export const translations = {
     },
     consultancyHero: {
       eyebrow: "Microsoft Consultancy",
-      titleA: "Senior consultants.",
-      titleB: "Real outcomes.",
+      titleA: "We know the stack.",
+      titleB: "Let's put it to work.",
       description:
         "End-to-end delivery on the Microsoft stack. Power Platform, Dynamics CE, Copilot Agents. Implemented by people who care about your results.",
       ctaPrimary: "Get in touch",
@@ -282,8 +282,8 @@ export const translations = {
     },
     consultancyHero: {
       eyebrow: "Microsoft Consultancy",
-      titleA: "Senior consultants.",
-      titleB: "Echte resultaten.",
+      titleA: "Wij kennen de stack.",
+      titleB: "Laten we aan de slag.",
       description:
         "End-to-end levering op de Microsoft stack. Power Platform, Dynamics CE, Copilot Agents. Ingericht door mensen die snappen wat je wilt bereiken.",
       ctaPrimary: "Neem contact op",
