@@ -61,6 +61,7 @@
   }
   html {
     scroll-behavior: smooth;
+    background-color: hsl(200 40% 98%);
   }
   body {
     @apply bg-background text-foreground antialiased;
