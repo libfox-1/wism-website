@@ -38,9 +38,9 @@ export default function AboutSection() {
 
             {/* Left: story */}
             <div>
-              <h2 className="text-2xl font-bold mb-6">{a.storyTitle}</h2>
+              <h2 className="text-2xl font-bold mb-6">{a.approachTitle}</h2>
               <div className="space-y-4">
-                {a.story.map((p, i) => (
+                {a.approach.map((p, i) => (
                   <p key={i} className="text-foreground/80 leading-relaxed">{p}</p>
                 ))}
               </div>

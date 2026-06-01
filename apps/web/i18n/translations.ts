@@ -20,16 +20,16 @@ export const translations = {
       ctaSecondary: "Get in touch",
     },
     about: {
-      eyebrow: "About",
-      titleA: "Senior expertise.",
-      titleB: "Without the overhead.",
-      description: "Wism is one person with a clear focus: delivering Microsoft solutions that work. No layers, no handoffs — direct access to someone who has done this before.",
-      storyTitle: "Background",
-      story: [
-        "Before starting Wism, I spent years delivering Power Platform, Dynamics CE and Azure solutions at Avanade and Roborana — two of the leading Microsoft delivery partners in the Netherlands. I've worked across industries, led development teams, and built solutions used by thousands of people.",
-        "I started Wism to bring that experience directly to clients who want senior delivery without the overhead of a large consultancy. You work with me from the first call to the final deployment.",
+      eyebrow: "About Wism",
+      titleA: "Built for delivery.",
+      titleB: "Not for overhead.",
+      description: "Wism is a boutique Microsoft consultancy and web studio based in the Netherlands. Senior expertise, clear communication, and results that actually move the needle.",
+      approachTitle: "Our approach",
+      approach: [
+        "We work exclusively with the Microsoft stack — Power Platform, Dynamics 365 CE, Azure and Copilot. That focus means deep expertise, not generalist guesswork.",
+        "Every engagement is handled by a certified senior consultant. You get direct access, clear scope, and delivery you can count on from start to finish.",
       ],
-      certsTitle: "Microsoft Certifications",
+      certsTitle: "Microsoft Certified",
       certs: [
         "PL-600 · Solution Architect Expert",
         "PL-200 · Functional Consultant",
@@ -247,16 +247,16 @@ export const translations = {
       ctaSecondary: "Neem contact op",
     },
     about: {
-      eyebrow: "Over",
-      titleA: "Senior expertise.",
-      titleB: "Zonder de overhead.",
-      description: "Wism is één persoon met een duidelijke focus: Microsoft-oplossingen leveren die werken. Geen lagen, geen overdrachten — gewoon directe toegang tot iemand die het al eerder heeft gedaan.",
-      storyTitle: "Achtergrond",
-      story: [
-        "Voor Wism heb ik jarenlang Power Platform-, Dynamics CE- en Azure-oplossingen geleverd bij Avanade en Roborana — twee van de toonaangevende Microsoft-delivery partners in Nederland. Ik heb in verschillende sectoren gewerkt, development teams aangestuurd en oplossingen gebouwd die dagelijks door duizenden mensen worden gebruikt.",
-        "Wism is ontstaan omdat ik die expertise rechtstreeks wilde inzetten voor klanten die senior delivery willen, zonder de overhead van een groot consultancykantoor. Je werkt met mij van het eerste gesprek tot de uiteindelijke oplevering.",
+      eyebrow: "Over Wism",
+      titleA: "Gebouwd voor delivery.",
+      titleB: "Niet voor overhead.",
+      description: "Wism is een boutique Microsoft-consultancy en webstudio gevestigd in Nederland. Senior expertise, heldere communicatie en resultaten die er echt toe doen.",
+      approachTitle: "Onze aanpak",
+      approach: [
+        "We werken uitsluitend met de Microsoft-stack — Power Platform, Dynamics 365 CE, Azure en Copilot. Die focus zorgt voor diepgaande expertise, geen generalistisch giswerk.",
+        "Elk traject wordt begeleid door een gecertificeerde senior consultant. Je krijgt directe toegang, een heldere scope en delivery waar je op kunt rekenen van begin tot eind.",
       ],
-      certsTitle: "Microsoft Certificeringen",
+      certsTitle: "Microsoft Gecertificeerd",
       certs: [
         "PL-600 · Solution Architect Expert",
         "PL-200 · Functional Consultant",
