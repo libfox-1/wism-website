@@ -62,7 +62,7 @@ export default function Nav() {
               <div className="bg-white text-foreground rounded-xl border border-border shadow-elegant p-5 grid grid-cols-2 gap-8 min-w-[420px]">
                 <div>
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">
-                    Microsoft Stack
+                    Microsoft Services
                   </p>
                   <ul className="space-y-2">
                     {serviceItems[locale].map((item) => (
