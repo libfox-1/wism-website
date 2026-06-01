@@ -172,7 +172,7 @@ export const translations = {
       tiers: [
         {
           name: "One Pager",
-          price: "€119",
+          price: "€99",
           period: "/month",
           contract: "Min. 12-month contract",
           description: "Everything you need to get online fast.",
@@ -180,7 +180,6 @@ export const translations = {
             "Single scrollable page",
             "Professional design",
             "Mobile responsive",
-            "Contact form",
             "Hosting included",
             "Updates & maintenance",
           ],
@@ -198,7 +197,6 @@ export const translations = {
             "Custom design",
             "Mobile responsive",
             "Contact form",
-            "Edit your own content",
             "SEO fundamentals",
             "Hosting included",
             "Updates & maintenance",
@@ -406,7 +404,7 @@ export const translations = {
       tiers: [
         {
           name: "One Pager",
-          price: "€119",
+          price: "€99",
           period: "/maand",
           contract: "Min. 12 maanden",
           description: "Snel online met alles wat je nodig hebt.",
@@ -414,7 +412,6 @@ export const translations = {
             "Één scrollbare pagina",
             "Professioneel ontwerp",
             "Mobielvriendelijk",
-            "Contactformulier",
             "Hosting inbegrepen",
             "Updates & onderhoud",
           ],
@@ -432,7 +429,6 @@ export const translations = {
             "Op maat ontworpen",
             "Mobielvriendelijk",
             "Contactformulier",
-            "Zelf content beheren",
             "SEO-basis",
             "Hosting inbegrepen",
             "Updates & onderhoud",
