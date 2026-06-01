@@ -53,7 +53,7 @@ export const translations = {
       titleA: "Senior consultants.",
       titleB: "Real outcomes.",
       description:
-        "End-to-end delivery on the Microsoft stack. Power Platform, Dynamics CE, Copilot Agents — implemented by people who care about your results.",
+        "End-to-end delivery on the Microsoft stack. Power Platform, Dynamics CE, Copilot Agents. Implemented by people who care about your results.",
       ctaPrimary: "Get in touch",
       ctaSecondary: "See our services",
     },
@@ -285,7 +285,7 @@ export const translations = {
       titleA: "Senior consultants.",
       titleB: "Echte resultaten.",
       description:
-        "End-to-end levering op de Microsoft stack. Power Platform, Dynamics CE, Copilot Agents — ingericht door mensen die snappen wat je wilt bereiken.",
+        "End-to-end levering op de Microsoft stack. Power Platform, Dynamics CE, Copilot Agents. Ingericht door mensen die snappen wat je wilt bereiken.",
       ctaPrimary: "Neem contact op",
       ctaSecondary: "Bekijk onze diensten",
     },
