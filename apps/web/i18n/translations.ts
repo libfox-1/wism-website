@@ -23,11 +23,18 @@ export const translations = {
       eyebrow: "About Wism",
       titleA: "Built for delivery.",
       titleB: "Not for overhead.",
-      description: "Wism is a boutique Microsoft consultancy and web studio based in the Netherlands. Senior expertise, clear communication, and results that actually move the needle.",
+      description: "Wism is a Microsoft consultancy and web studio based in the Netherlands. Senior expertise, clear communication, and results that actually move the needle.",
       approachTitle: "Our approach",
       approach: [
         "We work exclusively with the Microsoft stack — Power Platform, Dynamics 365 CE, Azure and Copilot. That focus means deep expertise, not generalist guesswork.",
         "Every engagement is handled by a certified senior consultant. You get direct access, clear scope, and delivery you can count on from start to finish.",
+      ],
+      valuesTitle: "What we stand for",
+      values: [
+        { title: "Senior delivery, always", body: "Every project is handled by a certified senior consultant. No juniors learning on your time, no hand-offs mid-way." },
+        { title: "Fixed scope, no surprises", body: "We agree on what gets built before work starts. Clear proposals, honest timelines, no ambiguous day-rate estimates." },
+        { title: "Microsoft only", body: "We don't do everything. We focus exclusively on the Microsoft stack so you get deep expertise, not broad coverage." },
+        { title: "Direct access", body: "You talk directly to the person doing the work. No account managers, no ticket queues." },
       ],
       certsTitle: "Microsoft Certified",
       certs: [
@@ -250,11 +257,18 @@ export const translations = {
       eyebrow: "Over Wism",
       titleA: "Gebouwd voor delivery.",
       titleB: "Niet voor overhead.",
-      description: "Wism is een boutique Microsoft-consultancy en webstudio gevestigd in Nederland. Senior expertise, heldere communicatie en resultaten die er echt toe doen.",
+      description: "Wism is een Microsoft-consultancy en webstudio gevestigd in Nederland. Senior expertise, heldere communicatie en resultaten die er echt toe doen.",
       approachTitle: "Onze aanpak",
       approach: [
         "We werken uitsluitend met de Microsoft-stack — Power Platform, Dynamics 365 CE, Azure en Copilot. Die focus zorgt voor diepgaande expertise, geen generalistisch giswerk.",
         "Elk traject wordt begeleid door een gecertificeerde senior consultant. Je krijgt directe toegang, een heldere scope en delivery waar je op kunt rekenen van begin tot eind.",
+      ],
+      valuesTitle: "Waar we voor staan",
+      values: [
+        { title: "Senior delivery, altijd", body: "Elk project wordt begeleid door een gecertificeerde senior consultant. Geen juniors die leren op jouw tijd, geen overdrachten halverwege." },
+        { title: "Vaste scope, geen verrassingen", body: "We stemmen af wat er gebouwd wordt voordat het werk begint. Heldere voorstellen, eerlijke planning, geen vage schattingen." },
+        { title: "Alleen Microsoft", body: "We doen niet alles. We focussen uitsluitend op de Microsoft-stack zodat je diepgaande expertise krijgt, geen brede oppervlakkigheid." },
+        { title: "Direct contact", body: "Je spreekt direct met de persoon die het werk doet. Geen accountmanagers, geen ticketsystemen." },
       ],
       certsTitle: "Microsoft Gecertificeerd",
       certs: [
