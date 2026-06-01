@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, BadgeCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function AboutSection() {
@@ -34,41 +34,21 @@ export default function AboutSection() {
       <section className="py-16 md:py-24 relative">
         <div className="ocean-blob bg-ocean-teal w-[500px] h-[500px] -top-20 -right-40 opacity-30" />
         <div className="container relative">
-          <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start">
-
-            {/* Left: story */}
-            <div>
-              <h2 className="text-2xl font-bold mb-6">{a.approachTitle}</h2>
-              <div className="space-y-4">
-                {a.approach.map((p, i) => (
-                  <p key={i} className="text-foreground/80 leading-relaxed">{p}</p>
-                ))}
-              </div>
-
-              <div className="mt-10">
-                <a
-                  href={`/${locale}/contact`}
-                  className="inline-flex items-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
-                >
-                  {a.ctaButton} <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-bold mb-6">{a.approachTitle}</h2>
+            <div className="space-y-4">
+              {a.approach.map((p, i) => (
+                <p key={i} className="text-foreground/80 leading-relaxed">{p}</p>
+              ))}
             </div>
 
-            {/* Right: certifications */}
-            <div>
-              <h2 className="text-2xl font-bold mb-6">{a.certsTitle}</h2>
-              <div className="grid gap-3">
-                {a.certs.map((cert) => (
-                  <div
-                    key={cert}
-                    className="flex items-center gap-3 bg-gradient-card border border-border/60 rounded-2xl px-5 py-4"
-                  >
-                    <BadgeCheck className="w-5 h-5 text-primary shrink-0" />
-                    <span className="text-sm font-medium">{cert}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-10">
+              <a
+                href={`/${locale}/contact`}
+                className="inline-flex items-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"
+              >
+                {a.ctaButton} <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
