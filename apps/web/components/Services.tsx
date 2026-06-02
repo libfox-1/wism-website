@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const icons = [
-  { src: "/icons/dynamics365.svg", alt: "Dynamics 365" },
-  { src: "/icons/power-platform.svg", alt: "Power Platform" },
-  { src: "/icons/powerbi.svg", alt: "Power BI" },
-  { src: "/icons/copilot.svg", alt: "Microsoft Copilot" },
   { src: "/icons/microsoft.svg", alt: "Advisory" },
+  { src: "/icons/power-platform.svg", alt: "Power Platform" },
+  { src: "/icons/dynamics365.svg", alt: "Dynamics 365" },
+  { src: "/icons/copilot.svg", alt: "Microsoft Copilot" },
   { src: "/icons/azure.svg", alt: "Azure" },
+  { src: "/icons/powerbi.svg", alt: "Power BI" },
 ];
 
 export default function Services() {

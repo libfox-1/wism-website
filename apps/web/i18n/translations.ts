@@ -78,28 +78,28 @@ export const translations = {
         "We work exclusively with Microsoft, so you get opinionated, hands-on delivery instead of generalist guesswork.",
       items: [
         {
-          title: "Dynamics 365 CE",
-          desc: "Sales, Customer Service and Marketing implemented and improved to fit how your team actually works.",
+          title: "Advisory",
+          desc: "Architecture reviews, platform decisions and honest guidance on approach. A second opinion before you commit to something.",
         },
         {
           title: "Power Platform",
           desc: "Power Apps, Power Automate and Dataverse to replace spreadsheets and clunky legacy tooling.",
         },
         {
-          title: "Power BI",
-          desc: "Dashboards and reports that turn your data into decisions. From operational reporting to enterprise-grade analytics.",
+          title: "Dynamics 365 CE",
+          desc: "Sales, Customer Service and Marketing implemented and improved to fit how your team actually works.",
         },
         {
           title: "Copilot & AI",
           desc: "Copilot and AI agents woven through your organisation, so the right information reaches the right people automatically.",
         },
         {
-          title: "Advisory",
-          desc: "Architecture reviews, platform decisions and honest guidance on approach. A second opinion before you commit to something.",
+          title: "Azure",
+          desc: "Application modernisation, data platforms and Azure infrastructure built to solve real problems, not just move to the cloud.",
         },
         {
-          title: "Azure Solutions",
-          desc: "Application modernisation, data platforms and Azure infrastructure built to solve real problems, not just move to the cloud.",
+          title: "Power BI",
+          desc: "Dashboards and reports that turn your data into decisions. From operational reporting to enterprise-grade analytics.",
         },
       ],
     },
@@ -317,28 +317,28 @@ export const translations = {
         "We werken uitsluitend met Microsoft. Geen generalist die alles een beetje kan, maar een team dat er diep in zit.",
       items: [
         {
-          title: "Dynamics 365 CE",
-          desc: "Sales, Customer Service en Marketing ingericht zoals jouw team écht werkt, niet zoals de standaard implementatie het voorschrijft.",
+          title: "Advies",
+          desc: "Architectuurreviews, platformkeuzes en eerlijke begeleiding bij je aanpak. Een tweede mening voordat je ergens aan vastzit.",
         },
         {
           title: "Power Platform",
           desc: "Power Apps, Power Automate en Dataverse als vervanging van spreadsheets en verouderde systemen, sneller dan je denkt.",
         },
         {
-          title: "Power BI",
-          desc: "Dashboards en rapporten die jouw data omzetten in beslissingen. Van operationele rapportages tot enterprise analytics.",
+          title: "Dynamics 365 CE",
+          desc: "Sales, Customer Service en Marketing ingericht zoals jouw team écht werkt, niet zoals de standaard implementatie het voorschrijft.",
         },
         {
           title: "Copilot & AI",
           desc: "Copilot en AI-agents verweven door je hele organisatie, zodat de juiste informatie vanzelf bij de juiste mensen terechtkomt.",
         },
         {
-          title: "Advies",
-          desc: "Architectuurreviews, platformkeuzes en eerlijke begeleiding bij je aanpak. Een tweede mening voordat je ergens aan vastit.",
+          title: "Azure",
+          desc: "Applicatiemodernisering, dataplatformen en Azure-infrastructuur gericht op echte vraagstukken, niet alleen maar migreren naar de cloud.",
         },
         {
-          title: "Azure Solutions",
-          desc: "Applicatiemodernisering, dataplatformen en Azure-infrastructuur gericht op echte vraagstukken, niet alleen maar migreren naar de cloud.",
+          title: "Power BI",
+          desc: "Dashboards en rapporten die jouw data omzetten in beslissingen. Van operationele rapportages tot enterprise analytics.",
         },
       ],
     },
