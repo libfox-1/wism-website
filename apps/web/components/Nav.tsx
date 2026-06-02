@@ -6,8 +6,8 @@ import { ChevronDown, Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const serviceItems = {
-  en: ["Dynamics CE", "Power Platform", "Copilot & AI", "Advisory", "Azure Solutions"],
-  nl: ["Dynamics CE", "Power Platform", "Copilot & AI", "Advies", "Azure Solutions"],
+  en: ["Dynamics CE", "Power Platform", "Copilot & AI", "Advisory", "Azure"],
+  nl: ["Dynamics CE", "Power Platform", "Copilot & AI", "Advies", "Azure"],
 };
 
 export default function Nav() {
