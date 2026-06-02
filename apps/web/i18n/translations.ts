@@ -86,6 +86,10 @@ export const translations = {
           desc: "Power Apps, Power Automate and Dataverse to replace spreadsheets and clunky legacy tooling.",
         },
         {
+          title: "Power BI",
+          desc: "Dashboards and reports that turn your data into decisions. From operational reporting to enterprise-grade analytics.",
+        },
+        {
           title: "Copilot & AI",
           desc: "Copilot and AI agents woven through your organisation, so the right information reaches the right people automatically.",
         },
@@ -319,6 +323,10 @@ export const translations = {
         {
           title: "Power Platform",
           desc: "Power Apps, Power Automate en Dataverse als vervanging van spreadsheets en verouderde systemen, sneller dan je denkt.",
+        },
+        {
+          title: "Power BI",
+          desc: "Dashboards en rapporten die jouw data omzetten in beslissingen. Van operationele rapportages tot enterprise analytics.",
         },
         {
           title: "Copilot & AI",
