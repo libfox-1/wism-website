@@ -29,12 +29,6 @@ export default function Footer() {
 
         <p className="text-sm text-white/50">{t.footer.copyright}</p>
 
-        <a
-          href="mailto:hello@wism.io"
-          className="text-sm text-white/70 hover:text-white transition-colors"
-        >
-          {t.footer.email}
-        </a>
       </div>
     </footer>
   );

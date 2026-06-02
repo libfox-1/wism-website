@@ -3,6 +3,8 @@
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+const stepNumbers = ["01", "02", "03", "04"];
+
 export default function AboutSection() {
   const { t, locale } = useLanguage();
   const a = t.about;
@@ -34,7 +36,7 @@ export default function AboutSection() {
       <section className="py-16 md:py-24 relative">
         <div className="ocean-blob bg-ocean-teal w-[500px] h-[500px] -top-20 -right-40 opacity-30" />
         <div className="container relative">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-6">{a.approachTitle}</h2>
             <div className="space-y-4">
               {a.approach.map((p, i) => (
@@ -45,21 +47,22 @@ export default function AboutSection() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Process */}
       <section className="py-16 md:py-24 relative">
         <div className="ocean-blob bg-ocean-deep w-[500px] h-[500px] -bottom-20 -left-40 opacity-30" />
         <div className="container relative">
-          <h2 className="text-2xl font-bold mb-10">{a.valuesTitle}</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {a.values.map((v) => (
-              <div key={v.title} className="bg-gradient-card border border-border/60 rounded-3xl p-8">
+          <h2 className="text-2xl font-bold mb-10 text-center">{a.valuesTitle}</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {a.values.map((v, i) => (
+              <div key={v.title} className="bg-gradient-card border border-border/60 rounded-3xl p-8 flex flex-col">
+                <span className="text-3xl font-bold text-primary/30 mb-4">{stepNumbers[i]}</span>
                 <h3 className="font-bold mb-3">{v.title}</h3>
                 <p className="text-sm text-foreground/70 leading-relaxed">{v.body}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 flex justify-center">
             <a
               href={`/${locale}/contact`}
               className="inline-flex items-center gap-2 bg-gradient-primary text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity shadow-glow"

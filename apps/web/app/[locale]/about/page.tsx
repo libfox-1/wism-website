@@ -3,16 +3,16 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "About — Wism",
-  description: "Microsoft Power Platform Solution Architect. Senior expertise without the overhead.",
+  description: "Microsoft consultancy and web studio based in the Netherlands. Senior expertise without the overhead.",
 };
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col flex-1">
-      <div className="flex-1">
+    <>
+      <main className="flex-1">
         <AboutSection />
-      </div>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

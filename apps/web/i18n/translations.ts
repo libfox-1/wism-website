@@ -31,10 +31,10 @@ export const translations = {
       ],
       valuesTitle: "How we work",
       values: [
-        { title: "No juniors on your project", body: "Certified senior consultants only. You're not training ground for anyone." },
-        { title: "Scope agreed before we start", body: "You know what you're getting and what it costs. No surprises halfway through." },
-        { title: "Microsoft only", body: "We don't spread thin. One stack, deep knowledge, better results." },
-        { title: "You talk to us directly", body: "No middlemen. The person on the call is the person doing the work." },
+        { title: "Discover", body: "We take time to understand your business, your challenges and what success actually looks like for you." },
+        { title: "Plan", body: "Together we define the right approach, scope and architecture before any work begins." },
+        { title: "Execute", body: "Senior consultants handle delivery end-to-end. No hand-offs, no surprises." },
+        { title: "Care", body: "After go-live we stay involved. Ongoing guidance, adjustments and support when you need it." },
       ],
       certsTitle: "Microsoft Certified",
       certs: [
@@ -273,10 +273,10 @@ export const translations = {
       ],
       valuesTitle: "Hoe we werken",
       values: [
-        { title: "Geen juniors op jouw project", body: "Alleen gecertificeerde senior consultants. Jouw project is geen oefenterrein." },
-        { title: "Scope afgesproken voor we beginnen", body: "Je weet wat je krijgt en wat het kost. Geen verrassingen halverwege." },
-        { title: "Alleen Microsoft", body: "Geen brede oppervlakkigheid. Één stack, diepgaande kennis, betere resultaten." },
-        { title: "Je praat direct met ons", body: "Geen tussenpersonen. De persoon in het gesprek is de persoon die het werk doet." },
+        { title: "Discover", body: "We nemen de tijd om jouw bedrijf, uitdagingen en definitie van succes te begrijpen." },
+        { title: "Plan", body: "Samen bepalen we de juiste aanpak, scope en architectuur voordat het werk begint." },
+        { title: "Execute", body: "Senior consultants regelen de delivery van begin tot eind. Geen overdrachten, geen verrassingen." },
+        { title: "Care", body: "Na de go-live blijven we betrokken. Doorlopende begeleiding, aanpassingen en support wanneer je het nodig hebt." },
       ],
       certsTitle: "Microsoft Gecertificeerd",
       certs: [
