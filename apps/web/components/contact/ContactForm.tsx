@@ -124,6 +124,22 @@ export default function ContactForm() {
         </div>
       )}
 
+      {category === "studio" && (
+        <div>
+          <label className={labelCls}>{f.studioService}</label>
+          <select
+            value={specificSvc}
+            onChange={e => setSpecificSvc(e.target.value)}
+            className={inputCls + " cursor-pointer"}
+          >
+            <option value="">{f.studioServicePlaceholder}</option>
+            {f.studioServices.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <div>
         <label className={labelCls}>{f.message}</label>
         <textarea
