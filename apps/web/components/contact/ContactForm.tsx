@@ -15,6 +15,8 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [category, setCategory] = useState("");
+  const [specificSvc, setSpecificSvc] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -23,12 +25,18 @@ export default function ContactForm() {
     setErrorMsg("");
 
     const data = new FormData(e.currentTarget);
+    const service = category === "consultancy"
+      ? specificSvc ? `Microsoft Consultancy — ${specificSvc}` : "Microsoft Consultancy"
+      : category === "studio"
+      ? "Wism Web Studio"
+      : "";
+
     const payload = {
       firstName: data.get("firstName"),
       lastName: data.get("lastName"),
       email: data.get("email"),
       company: data.get("company"),
-      service: data.get("service"),
+      service,
       message: data.get("message"),
       honeypot: data.get("website"),
     };
@@ -89,13 +97,32 @@ export default function ContactForm() {
 
       <div>
         <label className={labelCls}>{f.service}</label>
-        <select name="service" className={inputCls + " cursor-pointer"}>
+        <select
+          value={category}
+          onChange={e => { setCategory(e.target.value); setSpecificSvc(""); }}
+          className={inputCls + " cursor-pointer"}
+        >
           <option value="">{f.servicePlaceholder}</option>
-          {f.services.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
+          <option value="studio">{f.serviceOptions[0]}</option>
+          <option value="consultancy">{f.serviceOptions[1]}</option>
         </select>
       </div>
+
+      {category === "consultancy" && (
+        <div>
+          <label className={labelCls}>{f.specificService}</label>
+          <select
+            value={specificSvc}
+            onChange={e => setSpecificSvc(e.target.value)}
+            className={inputCls + " cursor-pointer"}
+          >
+            <option value="">{f.specificServicePlaceholder}</option>
+            {f.specificServices.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+        </div>
+      )}
 
       <div>
         <label className={labelCls}>{f.message}</label>
