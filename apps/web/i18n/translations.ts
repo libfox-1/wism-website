@@ -139,7 +139,7 @@ export const translations = {
       stepsTitle: "What happens next",
       steps: [
         { step: "01", title: "Discovery call", detail: "30 minutes to understand your challenge, goals and timeline." },
-        { step: "02", title: "Proposal", detail: "A clear, fixed-scope proposal with no ambiguous estimates." },
+        { step: "02", title: "Proposal", detail: "A proposal tailored to your situation, your goals and your budget." },
         { step: "03", title: "Kick-off", detail: "Meet the team, align on approach, and get started." },
       ],
       form: {
@@ -378,7 +378,7 @@ export const translations = {
       stepsTitle: "Wat er daarna gebeurt",
       steps: [
         { step: "01", title: "Kennismakingsgesprek", detail: "30 minuten om je uitdaging, doelen en planning te bespreken." },
-        { step: "02", title: "Voorstel", detail: "Een helder voorstel met vaste scope en geen vage schattingen." },
+        { step: "02", title: "Voorstel", detail: "Een voorstel op maat, afgestemd op jouw situatie, doelen en budget." },
         { step: "03", title: "Kick-off", detail: "Kennismaking met het team, aanpak afstemmen en van start gaan." },
       ],
       form: {
